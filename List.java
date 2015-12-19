@@ -48,6 +48,38 @@ public class List {
    
    }
    
+   public void add(int n, Node node) {
+      if(n < 0) {
+         System.out.println("the position to insert new node must be 0 or more");
+         return;
+      }
+      
+      if(n == 0) {
+         node.next = head;
+         head = node;
+         return;
+      }
+      
+      if(n >= this.size()) {
+         this.add(node);
+         return;
+      }
+      
+      Node focusNode = head;
+      Node parentNode = head;
+      int i = 0;
+      while(focusNode != null) {
+         if(i == n) {
+            node.next = focusNode;
+            parentNode.next = node;
+         }
+         i++;
+         parentNode = focusNode;
+         focusNode = focusNode.next;
+      }
+   
+   }
+   
    /*
     * return the size of the list
     * @params - nothing
@@ -91,8 +123,18 @@ public class List {
       
       list.print();
       System.out.println("List size: " + list.size());
+      
       list.delete(3);
+      list.print();
+      
       list.delete(4);
+      list.print();
+   
+      list.add(2,new Node(999));
+      list.add(12,new Node(999));
+      list.add(0,new Node(999));
+      list.add(0,new Node(69));
+      list.add(0,new Node(123));
       list.print();
    
    }
