@@ -47,7 +47,13 @@ public class List {
       }
    
    }
-   
+  
+   /*
+    * Add an element at the n position
+    * @params - n
+    * @params - node
+    * @return - void
+    */
    public void add(int n, Node node) {
       if(n < 0) {
          System.out.println("the position to insert new node must be 0 or more");
